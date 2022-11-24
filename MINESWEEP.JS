@@ -1,7 +1,14 @@
 'USE STRICT'
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
- //FUNCTION initGame(){}// This is called when page loads
+// This is called when page loads
+function initGame() {
+    console.log('hello')
+    gBoard = buildBoard()
+       addMines(gBoard)
+     // renderBoard(gBoard, '.board-container')
+    gGame.isOn = true
+}
 
 
 
@@ -11,7 +18,7 @@
 //Builds the board 
 var gBoard =buildBoard(4,4) 
  console.table(gBoard)
-const bomb = '💣'
+
  function buildBoard(rowsCount, colsCount) {
      
      var board = []
@@ -25,16 +32,42 @@ const bomb = '💣'
         
         return board
     }
-    //Set mines at random locations (not working)
+   
     
-    function addMines( ){
-        var randIdx = getRandomInt(1, 4)
-        gBoard.splice([randIdx][randIdx], 1,bomb)
-
+    ///////////////////////////////////////////////////////////////////////////////////////////////
+    //Set mines at random locations (not working)
+  /*  var gBomb
+    var randIdx = getRandomInt(1, 4)
+    function addMines( board){
+        gBomb = {
+            location: {
+                i: randIdx
+                j: randIdx
+                
+                
+            },
+            // is shown:true
+        }    
+        gBoard[gBomb.location.i][gBomb.location.j] =bomb    
+        //   gBoard.splice([randIdx][randIdx], 1,bomb)
+        
         
     }
-    
-    
+    */
+   const bomb = '💣' 
+   var gBomb
+    function addMines(gBoard) {
+    // DONE: initialize gPacman...
+    gbomb = {
+        location: {
+            i: 2,
+            j: 2
+        },
+       
+    }
+    gBoard[gbomb.location.i][gbomb.location.j] = bomb
+
+}
     
     
 
@@ -51,8 +84,8 @@ const bomb = '💣'
     //   mat[randIdx][randIdx].
     
     
-    //function setMinesNegsCount()  //Return the created board
-    
+
+   ///////////////////////////////////////////////////////////////////////////////////// 
     
     function getRandomInt(min, max) {
         min = Math.ceil(min);
@@ -61,8 +94,8 @@ const bomb = '💣'
     }
     
     
-    
-    
+    ////////////////////////////////////////////////////////////////////////////////////////
+   
     var Count =setMinesNegsCount(gBoard,i,j)
     
 
@@ -85,27 +118,37 @@ function setMinesNegsCount(gBoard, rowIdx, colIdx) {
     return bombCount
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
+        
+        
+      //  function renderBoard(board) Render the board as a<table> to the page
+        
+function renderBoard(mat, selector) {
 
-        
-        
-        function renderBoard(board) //Render the board as a<table> to the page
-        
-        
+}
+
+function renderCell(location, value) {
+    // Select the elCell and set the value
+    const elCell = document.querySelector(`.cell-${location.i}-${location.j}`)
+    elCell.innerHTML = value
+}
+
+ ///////////////////////////////////////////////////////////////////////////////////////////////////       
         function  cellClicked(elCell, i, j) //Called when a cell(td) is clicked
         
         
-        
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////      
         function cellMarked(elCell)// Called on right click to mark a cell(suspected to be a mine)
         //Search the web(and  implement) how to hide the context menu on right click
         
         
-        
+     ////////////////////////////////////////////////////////////////////////////////////////////////////////   
         function checkGameOver() //Game ends when all mines are marked, and all the other cells are shown
         
         
         
-        
+      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
         function expandShown(board, elCell, i, j)
         /*When user clicks a cell with no 
         mines around, we need to open 
@@ -124,4 +167,3 @@ function setMinesNegsCount(gBoard, rowIdx, colIdx) {
        
         //////////////////////////////////////////////////////
         
-        ////////////////////////////////////////////////////////////////////////
