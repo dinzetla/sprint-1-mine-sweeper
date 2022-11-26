@@ -1,5 +1,37 @@
+
+title{
+text-align: center;
+color:firebrick;
+}
+
+h1{
+    text-align: center;
+    color: black;
+    font-size: x-large;
+    display: inline;
+    cursor: cell;
+    padding: AUTO;
+}
+H2{
+text-align:center;
+    color: black;
+    font-size: x-large;
+    display: inline;
+    cursor: cell;
+
+padding: AUTO;
+}
 body {
-    background-color: rgba(238, 226, 226, 0.283);
+    background-color: rgba(238, 226, 230, 0.283);
     color: rgb(245, 232, 232);
 }
 
+button{
+    text-align: center;
+    background-color: rgba(134, 127, 127, 0.696);
+   color: rgb(13, 2, 24);
+   padding: AUTO;
+   font-style: initial;
+   visibility: visible;
+   align-self: auto;
+}
